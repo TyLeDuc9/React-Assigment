@@ -15,20 +15,21 @@ const emojiDictionary = {
 }
 
 function App() {
-  const [input, setInput]=useState(" ")
-  const [translated, setTranslated]=useState(" ")
+ 
+  const [input, setInput]=useState(' ');
+  const [translated, setTranslated]=useState(' ')
   const handleChane=(e)=>{
-    const text=e.target.value.toLowerCase();
+    const text=e.target.value
     setInput(text)
-    const words=text.split(' ');
-    const result=words.map((word)=>emojiDictionary[word] || word).join(" ");
+    const words=text.split(' ')
+    const result=words.map((word)=>emojiDictionary[word] || word).join(' ')
     setTranslated(result)
   }
 
 
 
   return (
-    <div className='p-4 text-center'>
+    <div className='p-11 text-center'>
       <h1 className='text-2xl my-5 font-semibold text-white'>Emoji Translator</h1>
       
       <input
@@ -36,9 +37,7 @@ function App() {
         placeholder='Type something like: happy love fire'
         value={input}
         onChange={handleChane}
- 
       />
-      
       <p className='mt-4 text-xl text-white'>{translated}</p>
     </div>
   )
